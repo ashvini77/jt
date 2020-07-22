@@ -1,1 +1,1 @@
-# jt
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/gl/techjoomla/techjoomla/jticketing/badges/quality-score.png?b=master&s=5e93c853a5847fb48f2a145e399e2d2f7c1e2cb4)](https://scrutinizer-ci.com/gl/techjoomla/techjoomla/jticketing/?branch=master)

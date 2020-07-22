@@ -1,0 +1,24 @@
+{
+    "name"       : "techjoomla/jticketing",
+    "description": "JTicketing",
+    "license"    : "GPL-2.0+",
+     "config": {
+        "vendor-dir": "vendor"
+    },
+    "require": {
+    },
+    "require-dev": {
+        "codeception/codeception": "~2.3",
+        "joomla-projects/joomla-browser": "~v3",
+        "fzaninotto/faker": "^1.6"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.org"
+        },
+        {
+            "packagist": false
+        }
+    ]
+}

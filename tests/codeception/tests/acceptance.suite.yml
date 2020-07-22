@@ -1,0 +1,93 @@
+# @version    SVN:<SVN_ID>
+# @package    JTicketing
+# @author     Techjoomla <extensions@techjoomla.com>
+# @copyright  Copyright (c) 2009-2018 Techjoomla. All rights reserved
+# @license    GNU General Public License version 2, or later
+
+# This is the Codeception Test Suite Configuration
+# Currently chromedriver v2.41 and selenium-server-standalone-3.14.0 or selenium-server-standalone-2.53.1 and google-chrome version 68.0.3440.106 (Official Build) (64-bit)
+
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver
+        - Filesystem
+        - JoomlaAcceptanceHelper
+    config:
+        WebDriver:
+            url: 'http://tjstaging2.cloudaccess.host'
+            browser: 'firefox'
+            window_size: maximize
+            capabilities:
+              unexpectedAlertBehaviour: 'accept'
+        JoomlaAcceptanceHelper: # see: tests/_support/JoomlaHelper.php
+            Username: 'tjft_user'
+            Password: 'abcd1234$$!!$$!!'
+            SiteUsername: 'tjft_siteuser'
+            SiteUserPassword: 'abcd1234$$!!$$!!'
+            onlineVenueUserName: 'samadhan_s@tekditechnologies.com'
+            onlineVenueUserPassword: 'C0dPDP2T'
+            onlineVenueProviderAccURL: 'https://meet50065061.adobeconnect.com/'
+            onlineVenueProviderFolderID: '1354331573'
+env:
+    chrome:
+         modules:
+            config:
+                WebDriver:
+                    browser: 'chrome'
+                    window_size: maximize
+                    capabilities:
+                      unexpectedAlertBehaviour: 'accept'
+                      chromeOptions:
+                        # args: ["--kiosk", "--start-maximized"]
+                        binary: "/usr/bin/google-chrome"
+         extensions:
+            enabled:
+                - Codeception\Extension\RunProcess:
+                    0: java -Dwebdriver.chrome.driver=/home/ubuntu/Automation-tools/chromedriver -jar /home/ubuntu/Automation-tools/selenium-server-standalone-3.14.0.jar
+                    sleep: 10 # wait 10 seconds for processes to boot
+    chrome-headless:
+         modules:
+            config:
+                WebDriver:
+                    browser: 'chrome'
+                    window_size: 1366x768
+                    capabilities:
+                      unexpectedAlertBehaviour: 'accept'
+                      chromeOptions:
+                        #args: ["--headless", "--disable-gpu", "--kiosk", "--start-maximized"]
+                        args: ["--headless", "--disable-gpu"]
+                        binary: "/usr/bin/google-chrome"
+         extensions:
+            enabled:
+                - Codeception\Extension\RunProcess:
+                    # 0: BUILD_ID=dontKillMe nohup java -jar -Dselenium.LOGGER.level=OFF /home/ubuntu/Automation-tools/selenium-server-standalone-3.14.0.jar -Dwebdriver.chrome.driver=/home/ubuntu/Automation-tools/chromedriver
+                    # 0: java -jar -Dselenium.LOGGER.level=OFF /home/ubuntu/Automation-tools/selenium-server-standalone-3.14.0.jar -Dwebdriver.chrome.driver=/home/ubuntu/Automation-tools/chromedriver
+                    #1: xvfb-run --server-args='-screen 0, 1024x768x16' google-chrome -start-maximized > /dev/null &
+                    sleep: 10 # wait 10 seconds for processes to boot
+
+    firefox:
+         modules:
+            config:
+                WebDriver:
+                    browser: 'firefox'
+                    window_size: maximize
+                    capabilities:
+                      unexpectedAlertBehaviour: 'accept'
+         extensions:
+            enabled:
+                - Codeception\Extension\RunProcess:
+                    0: java -jar /home/ubuntu/Automation-tools/selenium-server-standalone-3.14.0.jar
+                    sleep: 10 # wait 10 seconds for processes to boot
+    phantomjs:
+         modules:
+            config:
+                WebDriver:
+                    browser: 'phantomjs'
+                    window_size: maximize
+         extensions:
+            enabled:
+                - Codeception\Extension\RunProcess:
+                    0: killall phantomjs;
+                    1: phantomjs --webdriver=4444 --ignore-ssl-errors=true --ssl-protocol=any;
+                    sleep: 10 # wait 10 seconds for processes to boot

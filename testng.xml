@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test"
+  >
+    <classes>
+      <class name="com.jticketing.testCases.ALoginTest"/>
+      <class name="com.jticketing.testCases.AComponentPageTest"/>
+      <class name="com.jticketing.testCases.CreateEventPageTest"/>
+      <class name="com.jticketing.testCases.OfflineEventPageTest"/>
+      <class name="com.jticketing.testCases.TicketTypeEventPageTest"/>
+      <class name="com.jticketing.testCases.EventWithoutTicketPageTest"/>
+      <class name="com.jticketing.testCases.ZeroTicketPriceEventTPageTest"/>
+      <class name="com.jticketing.testCases.UnlimitedSeatsEventPageTest"/>
+      <class name="com.jticketing.testCases.LimitedSeatsEventPageTest"/>
+      <class name="com.jticketing.testCases.PublishedEventPageTest"/>
+      <class name="com.jticketing.testCases.UnpublishedEventPageTest"/>
+      <class name="com.jticketing.testCases.Event_EventImagePageTest"/>
+      <class name="com.jticketing.testCases.Event_MoreThanOneTicketPageTest"/>
+      <class name="com.jticketing.testCases.Event_MoreThanOneAttendeePageTest"/>
+      <class name="com.jticketing.testCases.Event_AttendeeFieldRequiredPageTest"/>
+      <class name="com.jticketing.testCases.Event_AttendeeFieldNotRequiredPageTest"/>
+      <class name="com.jticketing.testCases.Event_AllowSeeEventAttendeePageTest"/>
+      <class name="com.jticketing.testCases.Event_DenySeeEventAttendeePageTest"/>
+      <class name="com.jticketing.testCases.Event_TicketAndBookingDateCombinationsPageTest"/>
+      <class name="com.jticketing.testCases.Event_BookingAndEventDateCombinationsPageTest"/>
+      <class name="com.jticketing.testCases.Event_PastDateAndTimePageTest"/>
+      <class name="com.jticketing.testCases.Event_AttendeeFieldTypesPageTest"/>
+      
+     </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
+
+
+
